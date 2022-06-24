@@ -1,0 +1,9 @@
+# ignore node module folder.
+node_modules/
+
+# ignore backup files.
+*_bak.*
+
+# ignore dist except index.html
+dist/*
+!dist/index.html
