@@ -1,7 +1,9 @@
 const path = require('path');
-module.exports = {
-    mode: 'development',
-    entry: './src/index.jsx',
+
+/* env -> 'development' or 'production' */
+module.exports = (env) => ({
+    mode: env.development ? 'development' : 'production',
+    entry: `./src/index${env.development ? '_testing' : ''}.jsx`,
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.bundle.js',
@@ -10,12 +12,13 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                include: [
-                    path.resolve(__dirname, 'src')
-                ],
+                include: [path.resolve(__dirname, 'src')],
                 use: 'babel-loader',
             },
-        ]
+        ],
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
     },
     devServer: {
         static: {
@@ -24,4 +27,4 @@ module.exports = {
         compress: true,
         port: 30000,
     },
-}
+});

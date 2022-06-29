@@ -7,13 +7,17 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "teststart": "webpack serve --open --env development",
+    "testbuild": "webpack --config webpack.config.js --env development"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "express": "^4.18.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
