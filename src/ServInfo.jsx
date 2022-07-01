@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+const COLOR_CPU =   '#9CB4CC';
+const COLOR_MEM =   '#C689C6';
+const COLOR_DISK =  '#90C8AC';
 /*
 Props:
     name: String

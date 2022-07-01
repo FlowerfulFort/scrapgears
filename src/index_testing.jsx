@@ -24,12 +24,13 @@ const testClick = (e) => {
             console.log('error occured.');
         });
 };
-const App = () => {
+const TestGround = () => {
     return (
         <React.Fragment>
             <h3>Hello world Testing</h3>
             <button onClick={testClick}>Test POST Request</button>
-            <UsageMeter value={70} />
+            <UsageMeter color={'#2f2f2f'} value={9} />
+            <UsageMeter color={'#00aa00'} value={65} />
         </React.Fragment>
     );
 };
@@ -37,6 +38,6 @@ const App = () => {
 const rootNode = document.querySelector('#root');
 ReactDOM.createRoot(rootNode).render(
     <React.StrictMode>
-        <App />
+        <TestGround />
     </React.StrictMode>
 );
