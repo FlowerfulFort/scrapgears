@@ -5,7 +5,7 @@ module.exports = (env) => ({
     mode: env.development ? 'development' : 'production',
     entry: `./src/index${env.development ? '_testing' : ''}.jsx`,
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist', 'public'),
         filename: 'main.bundle.js',
     },
     module: {

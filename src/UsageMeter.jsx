@@ -27,34 +27,16 @@ const Progressbar_front = styled(Progressbar_back)`
     ${(props) => `background: ${props.color}; width: ${props.value}%;`}
 `;
 
-class UsageMeter extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            /*
-            <div>
-                <Meter
-                    color={this.props.color}
-                    value={this.props.value}
-                    max={100}
-                ></Meter>
-            </div>
-            */
-            <Container>
-                <Progressbar_back>
-                    <Progressbar_front
-                        value={this.props.value}
-                        color={this.props.color}
-                    />
-                </Progressbar_back>
-                <span>{this.props.value}%</span>
-            </Container>
-        );
-    }
-}
-
+const UsageMeter = (props) => {
+    return (
+        <Container>
+            <Progressbar_back>
+                <Progressbar_front value={props.value} color={props.color} />
+            </Progressbar_back>
+            <span>{props.value}%</span>
+        </Container>
+    );
+};
 UsageMeter.propTypes = {
     value: PropTypes.number,
     color: PropTypes.string,
