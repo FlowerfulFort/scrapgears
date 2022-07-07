@@ -7,3 +7,5 @@ node_modules/
 # ignore dist except index.html
 dist/*
 !dist/index.html
+
+*.dat

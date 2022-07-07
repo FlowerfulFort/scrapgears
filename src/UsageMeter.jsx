@@ -23,9 +23,19 @@ const Progressbar_back = styled.div`
     height: 100%;
     width: 100%;
 `;
+
+const Progressbar_front = styled(Progressbar_back).attrs((props) => ({
+    style: {
+        background: props.color,
+        width: props.value + '%',
+    },
+}))``;
+
+/*
 const Progressbar_front = styled(Progressbar_back)`
     ${(props) => `background: ${props.color}; width: ${props.value}%;`}
 `;
+*/
 
 const UsageMeter = (props) => {
     return (

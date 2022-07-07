@@ -1,20 +1,29 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { useTable } from 'react-table';
 import UsageMeter from './UsageMeter';
 
 const genTest = () => [
     {
         name: 'test1',
-        cpu: Math.round(Math.random() * 100).toString(),
-        mem: Math.round(Math.random() * 100).toString(),
+        cpu: Math.round(Math.random() * 100),
+        mem: Math.round(Math.random() * 100),
     },
     {
         name: 'test2',
-        cpu: Math.round(Math.random() * 100).toString(),
-        mem: Math.round(Math.random() * 100).toString(),
+        cpu: Math.round(Math.random() * 100),
+        mem: Math.round(Math.random() * 100),
     },
 ];
 const ServTable = (props) => {
+    const [phase, setPhase] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setPhase((prev) => prev + 1);
+        }, 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
     const testData = genTest();
     const cols = useMemo(
         () => [
@@ -41,13 +50,10 @@ const ServTable = (props) => {
         ],
         []
     );
-    console.log(cols);
-    console.log(testData);
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({ columns: cols, data: testData });
 
-    console.log('bye');
     return (
         <table {...getTableProps()}>
             <thead>

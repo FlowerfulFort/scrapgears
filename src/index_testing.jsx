@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import UsageMeter from './UsageMeter';
 import ServTable from './ServTable';
+import LoginBox from './LoginBox';
 const port = 23456;
 const ip = '127.0.0.1';
 const dataform = {
@@ -33,6 +34,7 @@ const TestGround = () => {
             <UsageMeter color={'#2f2f2f'} value={9} />
             <UsageMeter color={'#00aa00'} value={65} />
             <ServTable />
+            <LoginBox />
         </React.Fragment>
     );
 };
