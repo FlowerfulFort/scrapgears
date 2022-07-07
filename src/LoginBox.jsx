@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
+import LoginAuthentication from './LoginAuth';
 const Container = styled.div`
     border: 1px solid black;
     padding: 8px 15px;
@@ -15,9 +16,27 @@ const LoginButton = styled.input`
 `;
 
 export default (props) => {
+    const navigate = useNavigate();
     const formRef = useRef();
-    const SubmitAuth = () => {
+    const SubmitAuth = (e) => {
+        e.preventDefault();
         console.log('submit');
+        const request = {
+            id: formRef.current.id.value,
+            pw: formRef.current.pw.value,
+        };
+        console.log(`ID: ${request.id}`);
+        console.log(`PW: ${request.pw}`);
+
+        LoginAuthentication(request)
+            .then((response) => {
+                console.log(response);
+                navigate('/dashboard', { replace: true });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        // navigate('/dashboard', { replace: true });
     };
     return (
         <Container>
